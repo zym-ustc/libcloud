@@ -1,8 +1,8 @@
 ﻿Changelog
 =========
 
-Changes in Apach Libcloud in development
-----------------------------------------
+Changes in Apache Libcloud in development
+-----------------------------------------
 
 - Drop support for Python 2.6 and Python 3.3
   They're no longer supported, and the Python ecosystem is starting to
@@ -17,6 +17,9 @@ Common
 
 - Cleaned up and corrected third-party drivers documentation (GITHUB-1148)
   [Daniel Hunsaker]
+
+- Modernized a few Python examples (GITHUB-1164)
+  [Batuhan Osman Taşkaya]
 
 Compute
 ~~~~~~~
@@ -34,6 +37,9 @@ Compute
   [Anthony Monthe]
 
 - [EC2] Add AWS EC2 c5 series (GITHUB-1147)
+  [Anthony Monthe]
+
+- [EC2] Add AWS EC2 M5 sizes (GITHUB-1159)
   [Anthony Monthe]
 
 - [EC2] Update pricing information for EC2 instances.
@@ -114,6 +120,19 @@ Compute
   (GITHUB-1156, LIBCLOUD-971)
   [Tobias Paepke]
 
+- [ECS Aliyun] Support modify_security_group_attributes (GITHUB-1157)
+  [Zhang Yiming]
+
+- [GCE] Allow for use of shared network (VPC) and subnetwork (GITHUB-1165)
+  [Boris Chazalet]
+
+- [GCE] Add support for accelerators (LIBCLOUD-963, GITHUB-1163)
+  [Michael Johnson]
+
+- [Digital Ocean] Add support for tags in list_nodes()
+  (LIBCLOUD-967, GITHUB-1149)
+  [Mike Fischer]
+
 Storage
 ~~~~~~~
 
@@ -123,6 +142,19 @@ Storage
 - [Digital Ocean Spaces] Add support for AMS3 region (GITHUB-1142)
   [Andrew Starr-Bochicchio]
 
+- Fix a bug / regression which resulted in increased memory consumption when
+  using ``download_object`` method. This method would store whole object
+  content in memory even though there was no need for that.
+
+  This regression was introduced in 2.0.0 when we moved to using ``requests``
+  library.
+  (GITHUB-1132)
+  [Quentin Pradet]
+
+- Fix a regression with hash computation performance and memory usage on object
+  upload inadvertently introduced in 2.0.0 and make it more efficient.
+  (GITHUB-1135)
+  [Quentin Pradet]
 
 Changes in Apache Libcloud 2.2.1
 --------------------------------
